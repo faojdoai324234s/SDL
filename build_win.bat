@@ -10,7 +10,7 @@ REM Download latest sdl
 git clone --branch release-3.2.x --single-branch https://github.com/libsdl-org/SDL
 
 REM Build Debug configuration
-cmake -S SDL -B build -D CMAKE_BUILD_TYPE=Debug
+cmake -S SDL -B build -D CMAKE_BUILD_TYPE=Debug -D SDL_CAMERA=OFF -D SDL_JOYSTICK=OFF -D SDL_HAPTIC=OFF -D SDL_HIDAPI=OFF -D SDL_POWER=OFF -D SDL_SENSOR=OFF -D SDL_DIALOG=OFF
 cmake --build build --config Debug
 cmake --install build
 
@@ -23,7 +23,7 @@ REM Clean up before we run CMake again
 rmdir /s /q build
 
 REM Build Release configuration
-cmake -S SDL -B build -D CMAKE_BUILD_TYPE=Release
+cmake -S SDL -B build -D CMAKE_BUILD_TYPE=Release -D SDL_CAMERA=OFF -D SDL_JOYSTICK=OFF -D SDL_HAPTIC=OFF -D SDL_HIDAPI=OFF -D SDL_POWER=OFF -D SDL_SENSOR=OFF -D SDL_DIALOG=OFF
 cmake --build build --config Release
 cmake --install build
 
@@ -32,6 +32,6 @@ copy /y /v build\Release\*.dll upload\Release
 copy /y /v build\Release\*.lib upload\Release
 
 REM Copy over the headers
-xcopy /y /v /s /e SDL\include upload\include\sdl
+xcopy /y /v /s /e SDL\include\SDL3 upload\include\sdl
 
 exit /b
