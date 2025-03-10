@@ -11,8 +11,8 @@ git clone --branch release-3.2.x --single-branch https://github.com/libsdl-org/S
 
 # Install dependencies
 # sudo apt-get update && sudo apt-get install libaudio-dev libasound2-dev libglew-dev libjack-dev libpipewire-0.3 libpulse-dev libwayland-client libwayland-dev libx11-dev
-sudo apt-get update && sudo apt-get install build-essential git make \
-pkg-config cmake ninja-build gnome-desktop-testing libasound2-dev libpulse-dev \
+sudo apt-get update && sudo apt-get install build-essential \
+pkg-config gnome-desktop-testing libasound2-dev libpulse-dev \
 libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
 libxrandr-dev libxcursor-dev libxfixes-dev libxi-dev libxss-dev libxtst-dev \
 libxkbcommon-dev libdrm-dev libgbm-dev libgl1-mesa-dev libgles2-mesa-dev \
@@ -24,7 +24,8 @@ cmake --build build --config Debug
 cmake --install build
 
 # Copy over the built files
-cp build/SDL3.so upload/Debug/SDL3d.so
+cp build/libSDL3.so upload/Debug/libSDL3d.so
+cp build/libSDL_uclibc.a upload/Debug
 
 # Clean up before we run CMake again
 rm -rf build
@@ -35,7 +36,8 @@ cmake --build build --config Release
 cmake --install build
 
 # Copy over the built files
-cp build/SDL3.so upload/Release
+cp build/libSDL3.so upload/Release
+cp build/libSDL_uclibc.a upload/Release
 
 # Copy over the headers
 cp -r SDL/include/SDL3/. upload/include/sdl
