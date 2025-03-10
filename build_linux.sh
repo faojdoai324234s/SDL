@@ -10,7 +10,6 @@ mkdir upload/Release
 git clone --branch release-3.2.x --single-branch https://github.com/libsdl-org/SDL
 
 # Install dependencies
-# sudo apt-get update && sudo apt-get install libaudio-dev libasound2-dev libglew-dev libjack-dev libpipewire-0.3 libpulse-dev libwayland-client libwayland-dev libx11-dev
 sudo apt-get update && sudo apt-get install build-essential \
 pkg-config gnome-desktop-testing libasound2-dev libpulse-dev \
 libaudio-dev libjack-dev libsndio-dev libx11-dev libxext-dev \
